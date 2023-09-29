@@ -10,7 +10,14 @@
         <ul>
             @foreach ($notes as $note)
                 <li>
-                    <a href="#">{{$note->title}}</a> | <a href="{{ route('note.edit', $note->id) }}">Editar</a> | <a href="">Eliminar</a>
+                    <a href="{{route('note.show', $note->id)}}">{{$note->title}}</a> | 
+                    <a href="{{ route('note.edit', $note->id) }}">Editar</a> | 
+
+                    <form action="{{route('note.destroy', $note->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="DELETE">
+                    </form>
                 </li>
             @endforeach
         </ul>
