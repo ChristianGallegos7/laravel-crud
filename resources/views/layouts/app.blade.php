@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
+    @if ( $message = Session::get('success') )
+        <div>
+            {{$message}}
+        </div>
+    @endif
+    @if ( $message = Session::get('danger') )
+        <div>
+            {{$message}}
+        </div>
+    @endif
     @yield('content')
 </body>
 </html>

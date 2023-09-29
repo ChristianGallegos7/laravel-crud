@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\PostController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +29,6 @@ Route::put('/note/update/{note}', [NoteController::class, 'update'])->name('note
 Route::get('/note/show/{note}', [NoteController::class, 'show'])->name('note.show');
 
 Route::delete('/note/destroy/{note}', [NoteController::class, 'destroy'])->name('note.destroy');
+
+//controller resource
+Route::resource('/post', PostController::class);
